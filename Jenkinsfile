@@ -4,11 +4,15 @@ pipeline {
             label 'built-in'
         }
     }
+
+    triggers {
+        pollSCM '*/5 * * * *'
+    }
     
     stages {
         stage('Build') {
             steps {
-                echo "Building"
+                echo "Building1"
                 sh '''
                 echo "doing test stuff.."
                 '''
