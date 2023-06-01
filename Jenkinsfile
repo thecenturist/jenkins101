@@ -12,9 +12,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building1"
+                echo "Building.."
                 sh '''
-                echo "doing test stuff.."
+                cd myapp
+                pip install -r requirements.txt
                 '''
             }
         }
@@ -22,7 +23,9 @@ pipeline {
             steps {
                 echo "Testin.."
                 sh '''
-                echo "doing test stuff.."
+                cd myapp
+                python3 hello.py
+                python3 hello.py --name=Centurist
                 '''
             }
         }
